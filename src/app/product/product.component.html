@@ -1,0 +1,87 @@
+<router-outlet>
+<div class="divdetails">
+<p>
+  <h2>{{headTitle| lowercase}}</h2>
+  <br>
+  {{'DatePipe'| uppercase}}<br>
+  Date: {{today| date:'d/M/y'}}<br>
+  Date: {{today| date:'shortTime'}}<br>
+  Date:{{today| date:'dd/MM/yy hh:mm'}}<br>
+  Date:{{today | date:'MM/dd/yy'}}<br><br>
+  {{'Currency Pipeline'| uppercase}}<br>
+  {{6628.90| currency:'naira'}}<br>
+  {{6628.90| currency:"USD ":false}}<br>
+  <br>
+  {{'Json Value'| uppercase}}<br>
+  <b>{{jsonVal| json}}</b>
+  <br>
+  {{725| sqrt}}<br>
+  
+<a routerLink="new-cmp">New Component</a>  
+
+  <div class="divCenter">
+  <table>
+  <tr>
+  <th colspan="2">{{TeamNames| uppercase}}</th>
+  </tr>
+  <tr>
+  <td class="tdtext">Team Name</td>
+  <td>
+  <input type="text" name="team_name" placeholder="Enter Team Name" [(ngModel)]="teamname"/>
+  <span>{{ teamname }}</span>
+  </td>
+  </tr>
+  <tr>
+  <td class="tdtext">Team Owner</td>
+  <td><input (keyup)="onKey($event)"></td>
+  </tr>
+  <tr>
+  <td colspan="2" class="tdbutton">
+  <button (click)="addTeamName()">Add</button>
+  </td>
+  </tr>
+  </table>
+  </div>
+  <p>Item Counts:{{itemCount}}
+  <br>
+  <input type='submit' [value]='btntext'> 
+  <button (click)="addItems()">Add</button> 
+  <br>	
+  {{Name}}
+  <br>
+  
+</p>
+</div>
+<div>
+
+<div *ngFor="let i of TeamName; let i= index" (click)="removeitem(i)">
+<ul>
+<li><a>{{i}}</a></li>
+</ul>
+</div>
+</div>
+<div>
+Team Name:
+<select >
+<option *ngFor='let i of TeamName; let i= index'>{{i}}</option>
+</select>
+</div>
+<div>
+  Months:
+  <select (change)="dropdownchange($event)">
+	<option *ngFor="let i of months">{{i}}</option>
+  </select>
+
+</div>
+<div>
+  <span *ngIf="isValue; then condition1 else condition2">Condition is true</span>
+  <ng-template #condition1>Condition is valid</ng-template>
+  <ng-template #condition2>Condition is invalid</ng-template>
+</div>
+<div>
+<button (click)="ClickMe($event)" >Click me</button>
+</div>
+ </router-outlet>
+
+
+

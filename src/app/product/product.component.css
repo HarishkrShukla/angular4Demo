@@ -1,0 +1,30 @@
+h2
+{
+	font-style:oblique;
+	text-align:center;
+}
+table
+{
+	width:100%;
+}
+table tr th  
+{
+	text-align:center;
+	border: 1px solid black;
+}
+table tr td{
+	font-style:oblique;
+	border: 1px solid black;
+}
+.tdtext{
+	text-align:right;
+	width:50%;
+}
+.tdbutton
+{
+	text-align:center;
+}
+button
+{
+	width:150px;
+}
